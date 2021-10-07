@@ -1,12 +1,25 @@
 package com.example.tiendaapp;
 
+import androidx.annotation.Nullable;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
 import java.io.Serializable;
 
+@Entity
 public class Producto implements Serializable {
+
+    @PrimaryKey(autoGenerate = true)
     private int id;
     private String nombre;
     private Double precio;
+
+    @Nullable
     private String descripcion;
+
+    @ColumnInfo(name = "url_imagen")
     private String urlImagen;
 
     Producto() {}
@@ -16,6 +29,7 @@ public class Producto implements Serializable {
         this.nombre = nombre;
         this.precio = precio;
         this.urlImagen = urlImagen;
+        this.descripcion = "Sin descripcion";
     }
 
     public int getId() { return id;   }

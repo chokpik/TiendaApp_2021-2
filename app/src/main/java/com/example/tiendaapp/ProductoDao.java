@@ -10,4 +10,6 @@ public interface ProductoDao {
 
     @Query("select * from productos")
     List<Producto> obtenerProducto();
+
+    
 }
